@@ -39,7 +39,9 @@ steps:
 #--concurrency $_CONCURRENCY leaving default for now
 #Gateway stuff here
 # download the deploy.sh from nomadds-utils for api gateway
-
+options:
+  substitutionOption: ALLOW_LOOSE
+  
 substitutions:
   _SERVICE_NAME: test-fastapi-crud
   _DEPLOY_REGION: us-east4
