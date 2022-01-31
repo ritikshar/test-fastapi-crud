@@ -50,7 +50,7 @@ substitutions:
   #_TRIGGER_ID: a5820791-ec44-4d26-98bc-3f61459c9430
   #_GCR_HOSTNAME: us.gcr.io
   #_PLATFORM: managed
-  _TIMEOUT: 900
+  _TIMEOUT: "900"
   _DEPLOYMENT_PROJECT_ID: test-auth-api-332317
   _TAG: v.1.0.main
 
