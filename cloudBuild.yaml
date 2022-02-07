@@ -36,13 +36,13 @@ steps:
       ]
     id: Deploy
 
-#--concurrency $_CONCURRENCY leaving default for now
+  #--concurrency $_CONCURRENCY leaving default for now
 
-#Gateway stuff here
-# use deploy_api_to_apigw.sh for api gateway
-- name: 'bash'
-  entrypoint: bash
-  args: ['-c',
+  #Gateway stuff here
+  # use deploy_api_to_apigw.sh for api gateway
+  - name: 'bash'
+    entrypoint: bash
+    args: ['-c',
          './deploy_api_to_apigw.sh config-test-fastapi-crud-2 $_API_ID openapi2-run2.yaml $_DEPLOYMENT_PROJECT_ID $_SERVICE_ACCOUNT_NAME@$_DEPLOYMENT_PROJECT_ID.iam.gserviceaccount.com']
 
 options:
