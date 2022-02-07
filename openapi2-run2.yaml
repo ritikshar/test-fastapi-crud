@@ -1,0 +1,31 @@
+swagger: "2.0"
+info:
+  title: test-fastapi-crud
+  description: test-fastapi-crud API on API Gateway
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /hello:
+    get:
+      summary: Greet a user
+      operationId: hello
+      x-google-backend:
+        address: https://test-fastapi-crud-6zlvzuutaa-uk.a.run.app/
+      responses:
+        "200":
+          description: A successful response
+          schema:
+            type: string
+    post:
+      summary: return request body
+      operationId: body
+      x-google-backend:
+        address: https://test-fastapi-crud-6zlvzuutaa-uk.a.run.app/names
+      responses:
+        "200":
+          description: A successful response
+          schema:
+            type: string
