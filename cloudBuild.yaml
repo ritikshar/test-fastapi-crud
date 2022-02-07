@@ -43,7 +43,7 @@ steps:
   - name: 'gcr.io/cloud-builders/gsutil'
     entrypoint: bash
     args: ['-c',
-         'gsutil -m cp -r gs://deploy_api_to_apigw/deploy_api_to_apigw.sh .; chmod +x ./deploy_api_to_apigw.sh ; ./deploy_api_to_apigw.sh config-test-fastapi-crud-2 $_API_ID openapi2-run2.yaml $_DEPLOYMENT_PROJECT_ID $_SERVICE_ACCOUNT_NAME@$_DEPLOYMENT_PROJECT_ID.iam.gserviceaccount.com']
+         'gsutil -m cp -r gs://deploy_api_to_apigw/deploy_api_to_apigw.sh .; chmod +x ./deploy_api_to_apigw.sh ; ./deploy_api_to_apigw.sh config-test-fastapi-crud-2 $_API_ID $_DEPLOYMENT_PROJECT_ID openapi2-run2.yaml $_SERVICE_ACCOUNT_NAME@$_DEPLOYMENT_PROJECT_ID.iam.gserviceaccount.com']
 
 options:
   substitutionOption: ALLOW_LOOSE
