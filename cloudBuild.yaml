@@ -37,11 +37,17 @@ steps:
     id: Deploy
 
 #--concurrency $_CONCURRENCY leaving default for now
+
 #Gateway stuff here
-# download the deploy.sh from nomadds-utils for api gateway
+# use deploy_api_to_apigw.sh for api gateway
+- name: 'bash'
+  entrypoint: bash
+  args: ['-c',
+         './deploy_api_to_apigw.sh config-test-fastapi-crud-2 $_API_ID openapi2-run2.yaml $_DEPLOYMENT_PROJECT_ID $_SERVICE_ACCOUNT_NAME@$_DEPLOYMENT_PROJECT_ID.iam.gserviceaccount.com']
+
 options:
   substitutionOption: ALLOW_LOOSE
-  
+
 substitutions:
   _SERVICE_NAME: test-fastapi-crud
   _DEPLOY_REGION: us-east4
@@ -49,6 +55,7 @@ substitutions:
   _DEPLOYMENT: dev
   _MEMORY: 2Gi
   _REPO_NAME: test-fastapi-crud
+  _API_ID: test-fastapi-crud
   #_LABELS: gcb-trigger-id=a5820791-ec44-4d26-98bc-3f61459c9430
   #_TRIGGER_ID: a5820791-ec44-4d26-98bc-3f61459c9430
   #_GCR_HOSTNAME: us.gcr.io
