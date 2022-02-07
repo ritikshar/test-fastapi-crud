@@ -8,7 +8,7 @@ if [ "$#" -ne 7 ]; then
   exit 1
 fi
 
-/*
+'
 DEPLOYMENT=$1
 CONFIG_ID=${DEPLOYMENT}
 API_ID=$2-$CONFIG_ID
@@ -18,7 +18,7 @@ GATEWAY_ID=$PROJECT_ID-${API_ID}
 REGION=$5
 SERVICE_ACCOUNT_EMAIL=$6
 DELETE_IF_PRESENT=$7
-*/
+'
 
 # add config to existing gateway
 cmd="gcloud api-gateway api-configs create $CONFIG_ID --api=$API_ID --project=$PROJECT_ID --openapi-spec=$OPENAPI_SPEC --backend-auth-service-account=$SERVICE_ACCOUNT_EMAIL"
