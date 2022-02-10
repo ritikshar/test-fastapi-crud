@@ -40,11 +40,17 @@ steps:
 
   #Gateway stuff here
   # use deploy_api_to_apigw.sh for api gateway
-  - name: 'gcr.io/cloud-builders/gsutil'
+  #- name: 'gcr.io/cloud-builders/gsutil'
+  #  entrypoint: bash
+  #  args: ['-c',
+  #       'gsutil -m cp -r gs://deploy_api_to_apigw/deploy_api_to_apigw.sh .; chmod +x ./deploy_api_to_apigw.sh ; ./deploy_api_to_apigw.sh $_DEPLOYMENT_PROJECT_ID $_API_ID openapi2-run2.yaml $_DEPLOY_REGION $_SERVICE_ACCOUNT_NAME@$_DEPLOYMENT_PROJECT_ID.iam.gserviceaccount.com 1']
+
+ #Gateway stuff here
+  # use deploy_api_to_apigw.sh for api gateway
+  - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: bash
     args: ['-c',
-         'gsutil -m cp -r gs://deploy_api_to_apigw/deploy_api_to_apigw.sh .; chmod +x ./deploy_api_to_apigw.sh ; ./deploy_api_to_apigw.sh $_DEPLOYMENT_PROJECT_ID $_API_ID openapi2-run2.yaml $_DEPLOY_REGION $_SERVICE_ACCOUNT_NAME@$_DEPLOYMENT_PROJECT_ID.iam.gserviceaccount.com 1']
-
+         'chmod +x ./deploy_api_to_apigw.sh ; ./deploy_api_to_apigw.sh $_DEPLOYMENT_PROJECT_ID $_API_ID openapi2-run2.yaml $_DEPLOY_REGION $_SERVICE_ACCOUNT_NAME@$_DEPLOYMENT_PROJECT_ID.iam.gserviceaccount.com 1']
 options:
   substitutionOption: ALLOW_LOOSE
 
