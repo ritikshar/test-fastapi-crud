@@ -60,14 +60,4 @@ run_cmd ${cmd}
 cmd="gcloud api-gateway gateways create $GATEWAY_ID --api=$API_ID --api-config=$CONFIG_ID --location=$REGION --project=$PROJECT_ID"
 run_cmd ${cmd}
 
-# get the service name
-service_name=`gcloud api-gateway apis list --project=$PROJECT_ID --format yaml  | grep $API_ID | grep managedService | cut -d":" -f2`
-
-# remove the " from the service name that are included in the yaml output
-service_name=`echo "$service_name" | tr -d '"'`
-
-# enable the service
-cmd="gcloud services enable --project=$PROJECT_ID ${service_name}"
-run_cmd ${cmd}
-
 echo "DONE"
