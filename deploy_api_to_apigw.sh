@@ -60,4 +60,5 @@ run_cmd ${cmd}
 cmd="gcloud api-gateway gateways create $GATEWAY_ID --api=$API_ID --api-config=$CONFIG_ID --location=$REGION --project=$PROJECT_ID"
 run_cmd ${cmd}
 
+#done
 echo "DONE"
